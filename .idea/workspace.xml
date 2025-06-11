@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="16ec643c-9c5f-404b-98b5-3c5a931ce331" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascrip/arr3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javascrip/arr3.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,11 +110,22 @@
       <workItem from="1748755562435" duration="6206000" />
       <workItem from="1748858811830" duration="21397000" />
       <workItem from="1749209105442" duration="20425000" />
-      <workItem from="1749644046516" duration="497000" />
+      <workItem from="1749644046516" duration="3584000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
