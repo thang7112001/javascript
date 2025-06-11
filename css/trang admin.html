@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      display: flex;
+    }
+
+    .sidebar {
+      padding: 90px 20px;
+      border: 1px solid black;
+      width: 15%;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-item {
+      padding: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      width: 85%;
+    }
+
+    .admin-menu {
+      border: 1px solid black;
+      border-left: none;
+      text-align: center;
+      height: 15%;
+      padding-top: 50px;
+    }
+
+    .user-list {
+      border-right: 1px solid black;
+      height: 85%;
+      text-align: center;
+      padding-top: 200px;
+    }
+  </style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="sidebar-item">Product</div>
+  <div class="sidebar-item">Order</div>
+</div>
+<div class="main-content">
+  <div class="admin-menu">Menu Admin</div>
+  <div class="user-list">List Users</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 9, 5, 6, 10, 9, 7, 6, 1];
+    while (true) {
+        let found = false;
+        for (let i = 1; i <= arr.length; i++) {
+            if (arr[i] <= arr[i - 1] && arr[i] >= arr[i + 1]) {
+                let a = arr[i + 1];
+                arr[i + 1] = arr[i - 1];
+                arr[i - 1] = a;
+                found = true;
+                break;
+            }
+            if (arr[i] >= arr[i - 1] && arr[i] > arr[i + 1]) {
+                let a = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = a;
+                found = true;
+                break;
+            }
+            if (arr[i] < arr[i - 1] && arr[i] <= arr[i + 1]) {
+                let a = arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = a;
+                found = true;
+                break;
+            }
+        }
+        if (!found) break;
+        document.write(arr);
+        document.write("<hr>");
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [4, 6, 3, 8, 2, 7];
+
+    function insertNumberToArray(arr, x, i) {
+        for (let j = 0; j < arr.length; j++) {
+            if (j === i) {
+                arr.splice(j,0,x);
+            }else if (i<0 || i>arr.length-1){
+                return arr;
+            }
+        }
+        return arr;
+    }
+
+    document.write(insertNumberToArray(arr, 10, 10));
+    document.write("<hr>");
+    document.write(insertNumberToArray(arr, 10, 4));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let str='<table>';
+  for (let i = 1; i <= 5; i++) {
+    str += '<tr>';
+    for (let j = 1; j <= 5-i; j++) {
+      str += '<td></td>';
+    }
+    for (let j = 1; j <= i; j++) {
+      str += '<td>*</td>';
+    }
+    str += '</tr>';
+  }
+  let str2='<table>';
+  for (let i = 5; i >= 0; i--) {
+    str2 += '<tr>';
+    for (let j = 1; j <=5-i; j++) {
+      str2 += '<td></td>';
+    }
+    for (let j = 1; j <=i; j++) {
+      str2 += '<td>*</td>';
+    }
+    str2 += '</tr>';
+  }
+  document.write(str);
+  document.write(str2);
+</script>
+</body>
+</html>

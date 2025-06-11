@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="16ec643c-9c5f-404b-98b5-3c5a931ce331" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2uwlxSc12grt7qnXaPuUbtmBSyg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "last_opened_file_path": "C:/Users/Public/Downloads/FE thang/javascrip",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Public/Downloads/FE thang/src/main.js",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Public\Downloads\FE thang\javascrip" />
+      <recent name="C:\Users\Public\Downloads\FE thang\case1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Public\Downloads\FE thang\bài tập" />
+      <recent name="C:\Users\Public\Downloads\FE thang" />
+      <recent name="C:\Users\Public\Downloads\FE thang\.idea" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16ec643c-9c5f-404b-98b5-3c5a931ce331" name="Changes" comment="" />
+      <created>1743167767677</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743167767677</updated>
+      <workItem from="1743167770135" duration="4279000" />
+      <workItem from="1743410491740" duration="8731000" />
+      <workItem from="1743593559473" duration="8629000" />
+      <workItem from="1743766545199" duration="6896000" />
+      <workItem from="1743850202727" duration="1796000" />
+      <workItem from="1744199725437" duration="17842000" />
+      <workItem from="1744630386729" duration="9029000" />
+      <workItem from="1744802925439" duration="8881000" />
+      <workItem from="1744814958735" duration="106000" />
+      <workItem from="1744976166160" duration="9252000" />
+      <workItem from="1745130692899" duration="20439000" />
+      <workItem from="1745406384635" duration="21066000" />
+      <workItem from="1745459474296" duration="6168000" />
+      <workItem from="1745487016049" duration="4327000" />
+      <workItem from="1745838846883" duration="5588000" />
+      <workItem from="1746617596739" duration="8316000" />
+      <workItem from="1746790181579" duration="10376000" />
+      <workItem from="1747046773255" duration="12311000" />
+      <workItem from="1747216397760" duration="11860000" />
+      <workItem from="1747393827118" duration="9582000" />
+      <workItem from="1747647924007" duration="13341000" />
+      <workItem from="1747828532843" duration="7871000" />
+      <workItem from="1747837289830" duration="330000" />
+      <workItem from="1747999694464" duration="9147000" />
+      <workItem from="1748259009913" duration="15940000" />
+      <workItem from="1748604771099" duration="9671000" />
+      <workItem from="1748755562435" duration="6206000" />
+      <workItem from="1748858811830" duration="21397000" />
+      <workItem from="1749209105442" duration="19887000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trang ban hang</title>
+</head>
+<style>
+    .item{
+        display: flex;
+        align-items: center;
+        background-color: #bdbcbc;
+        border: 1px black solid;
+        border-radius: 10px;
+        width: 30vw;
+        margin-top: 5px;
+    }
+    .nameP{
+        display: inline-block;
+        width: 300px;
+        height: 20px;
+        margin-left: 10px;
+        margin-top: 3px;
+    }
+    #list button{
+        margin-right: 40px;
+    }
+
+</style>
+<body>
+<div id="sl"></div>
+<input type="text" id="product">
+<button onclick="add()">add</button>
+<div id="list"></div>
+<div id="edit"></div>
+<script>
+    let listProduct = [];
+    function product() {
+        let nameProduct = "";
+        for (let i = 0; i < listProduct.length; i++) {
+           nameProduct += `<div class="item">
+<span class="nameP">${listProduct[i]}</span>
+<button onclick="editP(${i})">Edit</button>
+<button onclick="del(${i})">Delete</button>
+</div>`
+        }
+        document.getElementById("list").innerHTML = nameProduct;
+        document.getElementById("sl").innerHTML = listProduct.length +"san pham";
+    }
+    function add() {
+        let x = document.getElementById("product").value;
+        listProduct.push(x);
+        product();
+    }
+    function del(x) {
+         listProduct.splice(x,1);
+         product();
+    }
+    function editP(x) {
+       document.getElementById("edit").innerHTML = `
+        <input id="editName" type="text" value="${listProduct[x]}">
+        <button onclick="save(${x})">save</button>
+        `
+
+    }
+    function save(x) {
+        let newName = document.getElementById("editName").value;
+        listProduct[x]= newName;
+        product();
+        document.getElementById("edit").innerHTML = "";
+    }
+</script>
+</body>
+</html>

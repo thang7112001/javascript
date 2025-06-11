@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="R.png" alt="" id="ball" style="width: 200px; position: absolute;top: 100px;left: 100px;rotate: 0deg">
+<script>
+    let tocdox =2;
+    let tocdoy =2;
+    function trai(){
+        let left = document.getElementById('ball').style.left;
+        left = parseInt(left);
+        if (left >= window.innerWidth-200){
+            tocdox = -2;
+        }
+        if (left<=0){
+            tocdox = 2;
+        }
+        left += tocdox;
+        document.getElementById('ball').style.left=left+'px';
+    }
+    function phai(){
+        let right = document.getElementById('ball').style.left;
+        right = parseInt(right);
+        right -= 20;
+        document.getElementById('ball').style.left=right+'px';
+    }
+    function  tren(){
+        let up = document.getElementById('ball').style.top;
+        up = parseInt(up);
+        up -= 20;
+        document.getElementById('ball').style.top=up+'px';
+    }
+    function duoi(){
+        let down = document.getElementById('ball').style.top;
+        down = parseInt(down);
+        if (down >= window.innerHeight-200){
+            tocdoy = -2;
+        }
+        if (down<=0){
+            tocdoy = 2;
+        }
+        down += tocdoy;
+        document.getElementById('ball').style.top=down+'px';
+    }
+    function cheoduoi(){
+        let left = document.getElementById('ball').style.left;
+        left = parseInt(left);
+        left += 20;
+        document.getElementById('ball').style.left=left+'px';
+        let down = document.getElementById('ball').style.top;
+        down = parseInt(down);
+        down += 20;
+        document.getElementById('ball').style.top=down+'px';
+    }
+    setInterval(()=> {
+      let roll = document.getElementById('ball').style.rotate;
+      roll = parseInt(roll);
+        if (roll >= window.innerWidth-200){
+           roll += tocdox;
+        }
+        if (roll<=-100){
+            roll -= tocdox;
+        }
+      document.getElementById('ball').style.rotate= roll + 'deg';
+      duoi();
+      trai();
+    },10);
+    console.log(window.innerWidth)
+</script>
+</body>
+</html>

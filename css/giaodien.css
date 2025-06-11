@@ -1,0 +1,92 @@
+́́́́́́*{
+    box-sizing: border-box;
+}
+body{
+    background-color: lightgray;
+}
+.header{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: #1e1c1c;
+}
+.left{
+    width: 50%;
+    display: flex;
+}
+.icon:hover{
+    background: black;
+    color: #f3efef;
+}
+.icon{
+    color: #838080;
+    text-align: center;
+    padding: 0 15px;
+    line-height: 45px;
+}
+.right{
+    width: 50%;
+display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.login{
+    color: #838080;
+    padding-right: 25px;
+}
+.main{
+    width: 100%;
+    height: 500px;
+    display: flex;
+}
+.col1{
+    width: 15%;
+    height: 500px;
+    border: 1px black solid;
+}
+.link{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding-top: 20px;
+}
+.col2{
+    width: 60%;
+    height: 500px;
+    border: 1px black solid;
+}
+.col3{
+    width: 25%;
+    height: 500px;
+    border: 1px black solid;
+}
+h4{
+    text-wrap: auto;
+}
+.footer{
+display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1c1c;
+    width: 100%;
+    height: 60px;
+}
+.footer div{
+color: #f3efef;
+}
+@media only screen and (max-width: 900px) {
+.col3{
+    display: none;
+}
+.col1{
+    width: 40%;
+}
+}
+@media only screen and (max-width: 600px) {
+    .col1{
+        display: none;
+    }
+    .col2{
+        width: 100%;
+    }
+}

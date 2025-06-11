@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n =+prompt("nhap so luong phan tu: ");
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let x = +prompt("Nhap phan tu "+i+": ");
+        arr.push(x);
+    }
+    let min = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < min){
+            min = arr[i];
+        }
+    }
+    let position =[];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === min){
+            position.push(i);
+        }
+    }
+    document.write("so nho nhat: "+ min +"<br>");
+    document.write("vi tri cac so min: "+ position);
+</script>
+</body>
+</html>

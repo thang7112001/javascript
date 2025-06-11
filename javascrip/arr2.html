@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = +prompt("Nam: ");
+    let y = +prompt("Nu: ");
+    let capkhacgioi = Math.min(x,y);
+    let capdonggioi = 0;
+        if (x>=y) {
+            capdonggioi = Math.floor((x - y) / 2);
+        }
+        if (y>x) {
+            capdonggioi = Math.floor((y - x) / 2);
+        }
+    document.write("cap khac gioi "+ capkhacgioi +"<br>");
+    document.write("cap dong gioi "+ capdonggioi);
+
+</script>
+</body>
+</html>

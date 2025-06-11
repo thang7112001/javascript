@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt("so so nguyen to: ");
+  let dem = 0;
+  let num = 2;
+  function NguyenTo(x) {
+    if (x < 2) return false;
+    for (let i = 2; i < x; i++) {
+      if (x % i === 0) return false;
+    }
+    return true;
+  }
+  while (dem<n){
+    if (NguyenTo(num)){
+      document.write(num+"<br>");
+      dem++;
+    }
+    num++;
+  }
+</script>
+</body>
+</html>

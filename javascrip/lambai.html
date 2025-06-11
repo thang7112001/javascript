@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="Input" placeholder="Tuổi">
+<button onclick="KiemTraTuoi()">OK</button>
+<br>
+<script>
+    function KiemTraTuoi(){
+        let old = document.getElementById("Input").value;
+        if (old >= 18 && old <= 120){
+            document.write("đủ tuổi");
+        }
+        else if (old < 18){
+            document.write("Chưa đủ tuổi");
+        }
+        else {
+            document.write("Nhập Sai")
+        }
+    }
+</script>
+</body>
+</html>

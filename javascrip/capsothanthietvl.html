@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sumOfCommonFactor(x, y) {
+        let sumx = 0;
+        let sumy = 0;
+        for (let i = 0; ; i++) {
+            if (x % i === 0) {
+                sumx += i;
+            }
+            if (sumx >= y || i > y) {
+                break;
+            }
+        }
+        for (let i = 0; ; i++) {
+            if (y % i === 0) {
+                sumy += i;
+            }
+            if (sumy >= x || i > x) {
+                break;
+            }
+        }
+        if (sumx === y && sumy === x) {
+            document.write('a va b la 2 so than thiet');
+        } else {
+            document.write('a va b khong phai la 2 so than thiet');
+        }
+    }
+
+    sumOfCommonFactor(22, 284);
+</script>
+</body>
+</html>

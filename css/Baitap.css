@@ -1,0 +1,13 @@
+.text{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.card:hover {
+    border: 2px solid black;
+}
+.card-text {
+    padding: 5px;
+}
+.card {
+    border: 1px solid lightgray;
+}

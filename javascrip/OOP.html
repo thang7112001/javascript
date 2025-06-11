@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* let productList = [
+        {
+            img: 'https://i.pinimg.com/736x/ce/f7/fd/cef7fddfeadab8607fc4a9c441895bbb.jpg',
+            name: 'banh',
+            price: '3000',
+            quantity: '1000',
+        },
+        {
+            img: 'https://i.pinimg.com/736x/10/d0/76/10d0763a5b47c458c8e5d155fde1e61e.jpg" alt="anh',
+            name: 'keo',
+            price: '1000',
+            quantity: '1000',
+        },
+        {
+            img: 'https://i.pinimg.com/736x/26/1b/4c/261b4c2baa427ded50956fb3b9d1c81b.jpg',
+            name: 'trai cay',
+            price: '10000',
+            quantity: '500',
+        }
+    ]
+    for (let i = 0; i < productList.length; i++) {
+        document.write(`<img src="${productList[i].img}" alt="pic" style="width: 200px; height: 200px"/><br>${productList[i].name}: ${productList[i].price},${productList[i].quantity}<br>`);
+    }*/
+class rectangle {
+    constructor(x,y,width,height,color) {
+        this.x=x;
+        this.y=y;
+        this.width=width;
+        this.height=height;
+        this.color=color;
+    }
+    render(canvas){
+        document.write(`ve len canvas: ${this.x} ${this.y}`);
+    }
+    S(){
+        document.write(`dien tich hcn: ${this.width*this.height}`);
+    }
+    C(){
+        document.write(`chu vi hcn: ${2*(this.width+this.height)}`)
+    }
+}
+let hcn = new rectangle(100,200,300,200,'Black');
+hcn.render('canvas');
+hcn.S();
+document.write("<hr>");
+hcn.C();
+</script>
+</body>
+</html>

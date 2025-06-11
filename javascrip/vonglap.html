@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let c = +prompt('enter a number ');
+    let fib = [];
+    const start = performance.now();
+    function Fibo() {
+        for (let i = 0; i <= c ; i++) {
+            if (i<=1){
+                fib[i] = i;
+                document.write(fib[i]+"<br>");
+            }
+            else {
+                fib[i] = fib[i-1]+fib[i-2];
+                document.write(fib[i]+"<br>");
+            }
+        }
+    }
+    Fibo();
+    const end = performance.now();
+    console.log(`Thời gian chạy: ${(end - start).toFixed(2)}ms`);
+
+
+</script>
+</body>
+</html>

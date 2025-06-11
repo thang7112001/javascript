@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let c =+prompt("nhap so ");
+    let fib = [];
+    for (let i = 0; i <= c ; i++) {
+        if (i <= 1) {
+            fib[i] = i;
+            document.write(fib[i] + "<br>");
+        } else {
+            fib[i] = fib[i - 1] + fib[i - 2];
+            document.write(fib[i] + "<br>");
+        }
+    }
+</script>
+</body>
+</html>
