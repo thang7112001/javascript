@@ -16,46 +16,121 @@
             border-collapse: collapse;
         }
         td {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             text-align: center;
             vertical-align: middle;
-            border: 1px solid black;
-            font-size: 24px;
+            border: 5px solid black;
+            font-size: 28px;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
 <div class="contain">
-    <table id="caro-board"></table>
+    <table id="caro-board">
+        <tbody></tbody>
+    </table>
 </div>
 <script>
     const boardSize = 10;
     const board = document.getElementById('caro-board');
     let currentPlayer = 'X';
     const cells = [];
+    const tbody = board.querySelector('tbody')
 
     for (let i = 0; i < boardSize; i++) {
-        const row = board.insertRow();
+        const tr = document.createElement('tr');
         cells[i] = [];
         for (let j = 0; j < boardSize; j++) {
-            const cell = row.insertCell();
-            cells[i][j] = cell;
-            cell.dataset.row = i;
-            cell.dataset.col = j;
-            cell.addEventListener('click', function () {
-                if (cell.textContent === '') {
-                    cell.textContent = currentPlayer;
-                    if (checkWin(i, j, currentPlayer)) {
-                        setTimeout(() => alert(currentPlayer + ' thắng!'), 10);
-                        board.querySelectorAll('td').forEach(td => td.removeEventListener('click', arguments.callee));
-                    } else {
-                        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            const td = document.createElement('td');
+            td.dataset.row = i;
+            td.dataset.col = j;
+            tr.appendChild(td);
+            cells[i][j] = td;
+        }
+        tbody.appendChild(tr);
+    }
+
+    const allCells = board.querySelectorAll('td');
+
+    allCells.forEach(cell => {
+        cell.addEventListener('click', function () {
+            const row = parseInt(cell.dataset.row);
+            const col = parseInt(cell.dataset.col);
+            if (cell.textContent === '' && currentPlayer === 'X') {
+                cell.textContent = 'X';
+                if (checkWin(row, col, 'X')) {
+                    setTimeout(() => alert('X thắng!'), 10);
+                    disableBoard();
+                } else {
+                    currentPlayer = 'O';
+                    setTimeout(botMove, 300);
+                }
+            }
+        });
+    });
+
+    function botMove() {
+        let bestMove = null;
+        let maxScore = -1;
+
+        for (let i = 0; i < boardSize; i++) {
+            for (let j = 0; j < boardSize; j++) {
+                if (cells[i][j].textContent === '') {
+                    const score = evaluateMove(i, j, 'O');
+                    if (score > maxScore) {
+                        maxScore = score;
+                        bestMove = { row: i, col: j };
                     }
                 }
-            });
+            }
         }
+
+        if (!bestMove) return;
+
+        const { row, col } = bestMove;
+        cells[row][col].textContent = 'O';
+
+        if (checkWin(row, col, 'O')) {
+            setTimeout(() => alert('O thắng!'), 10);
+            disableBoard();
+        } else {
+            currentPlayer = 'X';
+        }
+    }
+
+    function evaluateMove(row, col, player) {
+        let opponent;
+        let matchPoint;
+
+        if (player === 'X') {
+            opponent = 'O';
+        } else {
+            opponent = 'X';
+        }
+        const selfScore = countConnected(row, col, player);
+        const blockScore = countConnected(row, col, opponent);
+        matchPoint = selfScore + blockScore * 1.2;
+
+        if (countConnected(row, col,player) === 4) {
+            matchPoint = 10;
+        }
+        return matchPoint;
+    }
+
+    function countConnected(row, col, player) {
+        const directions = [
+            [0, 1], [1, 0], [1, 1], [1, -1]
+        ];
+        let max = 0;
+        for (const [dx, dy] of directions) {
+            const count =
+                countDirection(row, col, dx, dy, player) +
+                countDirection(row, col, -dx, -dy, player);
+            max = Math.max(max, count);
+        }
+        return max;
     }
 
     function checkWin(row, col, player) {
@@ -81,6 +156,9 @@
             y += dy;
         }
         return count;
+    }
+    function disableBoard() {
+        allCells.forEach(td => td.replaceWith(td.cloneNode(true)));
     }
 </script>
 </body>
