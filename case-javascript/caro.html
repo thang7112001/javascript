@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caro Game 10x10</title>
+    <style>
+        .contain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid black;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="contain">
+    <table id="caro-board"></table>
+</div>
+<script>
+    const boardSize = 10;
+    const board = document.getElementById('caro-board');
+    let currentPlayer = 'X';
+    const cells = [];
+
+    for (let i = 0; i < boardSize; i++) {
+        const row = board.insertRow();
+        cells[i] = [];
+        for (let j = 0; j < boardSize; j++) {
+            const cell = row.insertCell();
+            cells[i][j] = cell;
+            cell.dataset.row = i;
+            cell.dataset.col = j;
+            cell.addEventListener('click', function () {
+                if (cell.textContent === '') {
+                    cell.textContent = currentPlayer;
+                    if (checkWin(i, j, currentPlayer)) {
+                        setTimeout(() => alert(currentPlayer + ' thắng!'), 10);
+                        board.querySelectorAll('td').forEach(td => td.removeEventListener('click', arguments.callee));
+                    } else {
+                        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                    }
+                }
+            });
+        }
+    }
+
+    function checkWin(row, col, player) {
+        return (
+            countDirection(row, col, 0, 1, player) + countDirection(row, col, 0, -1, player) >= 4 ||
+            countDirection(row, col, 1, 0, player) + countDirection(row, col, -1, 0, player) >= 4 ||
+            countDirection(row, col, 1, 1, player) + countDirection(row, col, -1, -1, player) >= 4 ||
+            countDirection(row, col, 1, -1, player) + countDirection(row, col, -1, 1, player) >= 4
+        );
+    }
+
+    function countDirection(row, col, dx, dy, player) {
+        let count = 0;
+        let x = row + dx;
+        let y = col + dy;
+        while (
+            x >= 0 && x < boardSize &&
+            y >= 0 && y < boardSize &&
+            cells[x][y].textContent === player
+            ) {
+            count++;
+            x += dx;
+            y += dy;
+        }
+        return count;
+    }
+</script>
+</body>
+</html>
