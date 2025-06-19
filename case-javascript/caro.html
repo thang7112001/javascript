@@ -24,6 +24,39 @@
             font-size: 28px;
             cursor: pointer;
         }
+        .backGround{
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+        }
+        .box-border-btn{
+            background-color: white;
+            width: 400px;
+            height: 200px;
+            border-radius: 20px;
+            border: #1e1c1c 5px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+        .Btn{
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+
+        }
+        .hidden{
+            display: none;
+        }
+        .disabled{
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +64,14 @@
     <table id="caro-board">
         <tbody></tbody>
     </table>
+</div>
+<div id="gameOverScreen" class="hidden">
+<div class="backGround">
+    <div class="box-border-btn">
+        <button class="Btn" onclick="resetGames()">AGAIN</button>
+        <button class="Btn" onclick="">HISTORY</button>
+    </div>
+</div>
 </div>
 <script>
     const boardSize = 10;
@@ -61,8 +102,7 @@
             if (cell.textContent === '' && currentPlayer === 'X') {
                 cell.textContent = 'X';
                 if (checkWin(row, col, 'X')) {
-                    setTimeout(() => alert('X thắng!'), 10);
-                    disableBoard();
+                    stopGame();
                 } else {
                     currentPlayer = 'O';
                     setTimeout(botMove, 300);
@@ -78,7 +118,7 @@
         for (let i = 0; i < boardSize; i++) {
             for (let j = 0; j < boardSize; j++) {
                 if (cells[i][j].textContent === '') {
-                    const score = evaluateMove(i, j, 'O');
+                    const score = smartMove(i, j, 'O');
                     if (score > maxScore) {
                         maxScore = score;
                         bestMove = { row: i, col: j };
@@ -93,14 +133,13 @@
         cells[row][col].textContent = 'O';
 
         if (checkWin(row, col, 'O')) {
-            setTimeout(() => alert('O thắng!'), 10);
-            disableBoard();
+            stopGame();
         } else {
             currentPlayer = 'X';
         }
     }
 
-    function evaluateMove(row, col, player) {
+    function smartMove(row, col, player) {
         let opponent;
         let matchPoint;
 
@@ -113,8 +152,11 @@
         const blockScore = countConnected(row, col, opponent);
         matchPoint = selfScore + blockScore * 1.2;
 
-        if (countConnected(row, col,player) === 4) {
+        if (blockScore === 4) {
             matchPoint = 10;
+        }
+        if (selfScore === 4) {
+            matchPoint = 11;
         }
         return matchPoint;
     }
@@ -157,8 +199,20 @@
         }
         return count;
     }
-    function disableBoard() {
-        allCells.forEach(td => td.replaceWith(td.cloneNode(true)));
+    function stopGame() {
+        allCells.forEach(td => td.classList.add('disabled'));
+        document.getElementById('gameOverScreen').classList.remove('hidden');
+    }
+    function resetGames() {
+        for (let i = 0; i < boardSize; i++) {
+            for (let j = 0; j < boardSize; j++) {
+                const cell = cells[i][j];
+                cell.textContent = '';
+                cell.classList.remove('disabled');
+            }
+        }
+        currentPlayer = 'X';
+        document.getElementById('gameOverScreen').classList.add('hidden');
     }
 </script>
 </body>
