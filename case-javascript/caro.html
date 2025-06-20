@@ -33,6 +33,7 @@
             justify-content: center;
             align-items: center;
             top: 0;
+            opacity: 80%;
         }
         .box-border-btn{
             background-color: white;
@@ -49,7 +50,7 @@
             width: 100px;
             height: 50px;
             border-radius: 10px;
-
+            font-family: "Comic Sans MS", sans-serif;
         }
         .hidden{
             display: none;
@@ -105,7 +106,7 @@
                     stopGame();
                 } else {
                     currentPlayer = 'O';
-                    setTimeout(botMove, 300);
+                    setTimeout(botMove, 500);
                 }
             }
         });
@@ -201,7 +202,7 @@
     }
     function stopGame() {
         allCells.forEach(td => td.classList.add('disabled'));
-        document.getElementById('gameOverScreen').classList.remove('hidden');
+        setTimeout(()=>document.getElementById('gameOverScreen').classList.remove('hidden'),5000);
     }
     function resetGames() {
         for (let i = 0; i < boardSize; i++) {
