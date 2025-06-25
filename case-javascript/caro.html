@@ -65,7 +65,8 @@
         .disabled {
             pointer-events: none;
         }
-        #history{
+
+        #history {
             justify-content: center;
             position: absolute;
             width: 700px;
@@ -74,7 +75,8 @@
             left: 30vw;
             background-color: #6c757d;
         }
-        #close{
+
+        #close {
             width: 50px;
             height: 50px;
             position: absolute;
@@ -108,7 +110,6 @@
     const board = document.getElementById('caro-board');
     let currentPlayer = 'X';
     const cells = [];
-    const moves = [];
     const tbody = board.querySelector('tbody')
 
     for (let i = 0; i < boardSize; i++) {
@@ -132,7 +133,6 @@
             const col = parseInt(cell.dataset.col);
             if (cell.textContent === '' && currentPlayer === 'X') {
                 cell.textContent = 'X';
-                moves.push({ row, col, player: 'X' });
                 if (checkWin(row, col, 'X')) {
                     gameHistory('X');
                     stopGame();
@@ -164,7 +164,6 @@
 
         const {row, col} = bestMove;
         cells[row][col].textContent = 'O';
-        moves.push({ row, col, player: 'O' });
 
         if (checkWin(row, col, 'O')) {
             gameHistory('O');
@@ -319,16 +318,17 @@
     }
 
     function gameHistory(winner) {
-        const history = JSON.parse(localStorage.getItem('caroHistory'))||[];
+        const history = JSON.parse(localStorage.getItem('caroHistory')) || [];
         history.push(
             {
                 winner,
                 date: new Date().toISOString()
             }
         );
-        localStorage.setItem('caroHistory',JSON.stringify(history));
+        localStorage.setItem('caroHistory', JSON.stringify(history));
 
     }
+
     function showHistory() {
         const historyList = document.getElementById('history-list');
         historyList.innerHTML = '';
@@ -340,9 +340,10 @@
         });
         document.getElementById('history').classList.remove('hidden');
     }
-function closeHistory() {
-    document.getElementById('history').classList.add('hidden');
-}
+
+    function closeHistory() {
+        document.getElementById('history').classList.add('hidden');
+    }
 </script>
 </body>
 </html>
