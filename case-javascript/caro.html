@@ -181,6 +181,12 @@
         const blockScore = countConnected(row, col, opponent);
         matchPoint = selfScore + blockScore * 1.2;
 
+        if (eliteMove(row,col,opponent)){
+            matchPoint = 10;
+        }
+        if (eliteMove(row,col,player)){
+            matchPoint = 11;
+        }
         if (countSpecialConnected(row, col, opponent)) {
             matchPoint = 12;
         }
@@ -218,6 +224,60 @@
             countDirection(row, col, 1, -1, player) + countDirection(row, col, -1, 1, player) >= 4
         );
     }
+function eliteMove(row,col,player) {
+    const patterns = [
+        {dx: 0, dy: 1, offsets: [-2, -1]},
+        {dx: 0, dy: 1, offsets: [ 1, 2]},
+        {dx: 0, dy: 1, offsets: [-1, 1]},
+
+        {dx: 1, dy: 0, offsets: [-2, -1]},
+        {dx: 1, dy: 0, offsets: [ 1, 2]},
+        {dx: 1, dy: 0, offsets: [-1, 1]},
+
+        {dx: 1, dy: 1, offsets: [-2, -1]},
+        {dx: 1, dy: 1, offsets: [ 1, 2]},
+        {dx: 1, dy: 1, offsets: [-1, 1]},
+
+        {dx: 1, dy: -1, offsets: [-2, -1]},
+        {dx: 1, dy: -1, offsets: [ 1, 2]},
+        {dx: 1, dy: -1, offsets: [-1, 1]},
+    ];
+
+    let count = 0;
+    for (const {dx, dy, offsets} of patterns) {
+        let match = true;
+
+
+        for (let offset of offsets) {
+            const x = row + dx * offset;
+            const y = col + dy * offset;
+
+            if (x < 0 || x >= boardSize || y < 0 || y >= boardSize) {
+                match = false;
+                break;
+            }
+
+            const cellValue = cells[x][y].textContent;
+
+            if (cellValue !== player) {
+                match = false;
+                break;
+            }
+        }
+
+        if (match) {
+            const beforeX = row + dx * (Math.min(...offsets) - 1);
+            const beforeY = col + dy * (Math.min(...offsets) - 1);
+            const afterX = row + dx * (Math.max(...offsets) + 1);
+            const afterY = col + dy * (Math.max(...offsets) + 1);
+
+            if (boundary(beforeX, beforeY) && boundary(afterX, afterY)) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
 
     function countSpecialConnected(row, col, player) {
         const patterns = [
